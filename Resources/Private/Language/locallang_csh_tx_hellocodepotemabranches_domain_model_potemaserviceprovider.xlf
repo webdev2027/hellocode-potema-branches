@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2018-05-02T17:07:47Z" product-name="hellocode_potema_branches">
+		<header/>
+		<body>
+			<trans-unit id="tx_hellocode_potema_branches_domain_model_potemaserviceprovider">
+				<source>POTEMA Service Provider</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocode_potema_branches_domain_model_potemaserviceprovider.description">
+				<source>Address List of all POTEMA service provider</source>
+			</trans-unit>
+			<trans-unit id="provider_title.description">
+				<source>providerTitle</source>
+			</trans-unit>
+			<trans-unit id="provider_subtitle.description">
+				<source>providerSubtitle</source>
+			</trans-unit>
+			<trans-unit id="provider_generaldistributor.description">
+				<source>providerGeneraldistributor</source>
+			</trans-unit>
+			<trans-unit id="provider_premiumpartner.description">
+				<source>providerPremiumpartner</source>
+			</trans-unit>
+			<trans-unit id="provider_street.description">
+				<source>providerStreet</source>
+			</trans-unit>
+			<trans-unit id="provider_zip.description">
+				<source>providerZip</source>
+			</trans-unit>
+			<trans-unit id="provider_city.description">
+				<source>providerCity</source>
+			</trans-unit>
+			<trans-unit id="provider_country.description">
+				<source>providerCountry</source>
+			</trans-unit>
+			<trans-unit id="provider_phone.description">
+				<source>providerPhone</source>
+			</trans-unit>
+			<trans-unit id="provider_fax.description">
+				<source>providerFax</source>
+			</trans-unit>
+			<trans-unit id="provider_mobile.description">
+				<source>providerMobile</source>
+			</trans-unit>
+			<trans-unit id="provider_email.description">
+				<source>providerEmail</source>
+			</trans-unit>
+			<trans-unit id="provider_url.description">
+				<source>providerUrl</source>
+			</trans-unit>
+			<trans-unit id="provider_lat.description">
+				<source>providerLat</source>
+			</trans-unit>
+			<trans-unit id="provider_lng.description">
+				<source>providerLng</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

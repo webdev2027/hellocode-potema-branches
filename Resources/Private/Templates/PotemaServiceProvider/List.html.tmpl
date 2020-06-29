@@ -1,0 +1,98 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+
+<f:flashMessages />
+
+<div class="tx_hellocodepotemabranches">
+	<f:comment>
+		<!--
+	<tr>
+		<th><f:translate key="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_title" /></th>
+		<th><f:translate key="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_subtitle" /></th>
+		<th><f:translate key="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_street" /></th>
+		<th><f:translate key="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_zip" /></th>
+		<th><f:translate key="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_city" /></th>
+		<th><f:translate key="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_country" /></th>
+		<th><f:translate key="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_phone" /></th>
+		<th><f:translate key="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_fax" /></th>
+		<th><f:translate key="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_mobile" /></th>
+		<th><f:translate key="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_email" /></th>
+		<th><f:translate key="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_url" /></th>
+		<th><f:translate key="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_lat" /></th>
+		<th><f:translate key="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_lng" /></th>
+		<th> </th>
+		<th> </th>
+	</tr>
+		-->
+	</f:comment>
+	<f:for each="{potemaServiceProviders}" as="potemaServiceProvider" iteration="iter">
+		<div class="callout {f:if(condition: '{iter.isOdd}', then: 'bgLightblue odd', else: 'bgSuccess even')}">
+			<div class="row">
+				<div class="large-11 medium-11 columns">
+					<div class="row collapse">
+						<div class="large-6 columns">
+							<h3>{potemaServiceProvider.providerTitle}</h3>
+						</div>
+						<div class="large-6 columns">
+							<f:if condition="{potemaServiceProvider.providerUrl}">
+								<h3><f:link.external uri="{potemaServiceProvider.providerUrl}" target="_blank">{potemaServiceProvider.providerUrl}</f:link.external></h3>
+							</f:if>
+						</div>
+					</div>
+					<div class="row collapse">
+						<div class="large-4 columns">
+							{potemaServiceProvider.providerStreet}<br>
+							{potemaServiceProvider.providerZip} {potemaServiceProvider.providerCity}
+						</div>
+						<div class="large-4 columns">
+							<f:if condition="{potemaServiceProvider.providerPhone}">Telefon: {potemaServiceProvider.providerPhone}<br></f:if>
+							<f:if condition="{potemaServiceProvider.providerFax}">Fax: {potemaServiceProvider.providerFax}</f:if>
+						</div>
+						<div class="large-4 columns">
+							<f:if condition="{potemaServiceProvider.providerMobile}">Mobil: {potemaServiceProvider.providerMobile}<br></f:if>
+							<f:link.email email="{potemaServiceProvider.providerEmail}">E-Mail</f:link.email>
+						</div>
+					</div>
+				</div>
+
+				<div class="large-1 medium-1 columns">
+					<button class="button" data-open="exampleModal1">Click me for a modal</button>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="reveal" id="exampleModal1" data-reveal>
+			<h1>Awesome. I Have It.</h1>
+			<p class="lead">Your couch. It is mine.</p>
+			<p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+			<button class="close-button" data-close aria-label="Close modal" type="button">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+<f:comment>
+			<td><f:link.action action="show" arguments="{potemaServiceProvider : potemaServiceProvider}"> </f:link.action></td>
+			<td><f:link.action action="show" arguments="{potemaServiceProvider : potemaServiceProvider}"> {potemaServiceProvider.providerSubtitle}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{potemaServiceProvider : potemaServiceProvider}"> {potemaServiceProvider.providerCountry}</f:link.action></td>
+
+			<td><f:link.action action="show" arguments="{potemaServiceProvider : potemaServiceProvider}"> {potemaServiceProvider.providerLat}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{potemaServiceProvider : potemaServiceProvider}"> {potemaServiceProvider.providerLng}</f:link.action></td>
+</f:comment>
+	</f:for>
+</div>
+
+</f:section>
+</html>

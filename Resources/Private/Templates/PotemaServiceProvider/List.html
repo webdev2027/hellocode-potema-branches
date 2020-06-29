@@ -1,0 +1,256 @@
+{namespace ssa=Ssa\HellocodePotemaBranches\ViewHelpers}
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="main">
+
+<div class="tx_hellocodepotemabranches">
+
+	<div class="row">
+		<div class="medium-12 columns">
+
+			<form method="get" id="search">
+
+				<input type="hidden" name="id" value="{pid}" />
+
+				<div class="medium-6 columns">
+					<select name="country">
+						<option value="">
+							<f:translate key="LLL:EXT:hellocode_potema_branches/Resources/Private/Language/locallang.xlf:tx_hellocodepotemabranches_domain_model_potemaserviceprovider.form_select1" />
+						</option>
+						<f:for each="{countries}" as="country">
+							<ssa:selectOptions filterCountry="{filterCountry}" country="{country.providerCountry}" />
+						</f:for>
+					</select>
+
+				</div><!-- / column -->
+
+				<div class="medium-3 columns end">
+
+					<f:if condition="{filterCountry} != ''">
+						<f:if condition="{filterCountry} == 'Deutschland'">
+							<f:render partial="ZipCode" arguments="{filterZip: filterZip}" />
+						</f:if>
+						<f:if condition="{filterCountry} == ''">
+							<f:render partial="ZipCode" arguments="{filterZip: filterZip}" />
+						</f:if>
+					</f:if>
+
+				</div>
+<f:comment>
+	<!--
+				<div class="medium-2 columns">
+					<button type="submit" class="button expanded">
+						<f:translate key="LLL:EXT:hellocode_potema_branches/Resources/Private/Language/locallang.xlf:tx_hellocodepotemabranches_domain_model_potemaserviceprovider.form_submit" />
+					</button>
+				</div>
+	-->
+</f:comment>
+			</form>
+
+		</div><!-- / column 12 -->
+	</div><!-- / row -->
+<f:comment>
+	<!--
+    * sorting via vhs -> https://fluidtypo3.org/viewhelpers/vhs/master/Iterator/SortViewHelper.html
+    * for each="{potemaServiceProviders->v:iterator.sort(order: 'ASC', sortBy: 'providerCountry')}" as="potemaServiceProvider" iteration="iter"
+    -->
+
+	<!--
+	* General distributor have to be the first callout in row -> see EXT:hellocode/Resources/Public/js/app.js
+ 	*
+	-->
+</f:comment>
+	<f:for each="{potemaServiceProviders}" as="potemaServiceProvider" iteration="iter">
+
+		<div id="p{potemaServiceProvider.uid}" class="callout potemaProviderList {f:if(condition: '{iter.isOdd}', then: 'bgListBlue odd', else: 'bgWhite even')} {f:if(condition:'{potemaServiceProvider.providerGeneraldistributor} == 1',then:'general')} {f:format.case(value: '{potemaServiceProvider.providerCountry}', mode: 'lower')}">
+			<div class="row">
+				<div class="large-11 medium-11 small-8 columns">
+					<div class="row collapse">
+						<div class="large-6 medium-6 columns">
+							<h3>{potemaServiceProvider.providerTitle}</h3>
+						</div>
+						<div class="large-6 medium-6 columns">
+							<f:if condition="{potemaServiceProvider.providerUrl}">
+								<h3 class="large-text-right medium-text-right"><f:link.external uri="{potemaServiceProvider.providerUrl}" target="_blank"><span class="icon-earth"></span><f:translate key="LLL:EXT:hellocode_potema_branches/Resources/Private/Language/locallang.xlf:tx_hellocodepotemabranches_domain_model_potemaserviceprovider.visitwebsite" /></f:link.external></h3>
+							</f:if>
+						</div>
+					</div>
+					<div class="row collapse">
+						<hr>
+					</div>
+					<div class="row collapse">
+						<div class="large-3 medium-6 columns colorPrimary">
+							<f:if condition="{potemaServiceProvider.providerPremiumpartner}">
+								<div class="float-right" style="margin-right:20px;">
+									<f:image src="EXT:hellocode_potema_branches/Resources/Public/Icons/icon_premium_partner.png" alt="Potema Premium Partner Icon" width="50" />
+								</div>
+							</f:if>
+							<f:if condition="{potemaServiceProvider.providerSubtitle}">
+								<f:if condition="{potemaServiceProvider.providerGeneraldistributor}">
+									<f:then>
+										<span class="{f:if(condition:'{potemaServiceProvider.providerGeneraldistributor} == 1',then:'colorWarning')}">
+											<strong>{potemaServiceProvider.providerSubtitle}</strong></span><br>
+									</f:then>
+									<f:else>
+										<f:if condition="{potemaServiceProvider.providerPremiumpartner}">
+											<f:then>
+												<span class="{f:if(condition:'{potemaServiceProvider.providerPremiumpartner} == 1',then:'colorWarning')}">
+												<strong><f:translate key="LLL:EXT:hellocode_potema_branches/Resources/Private/Language/locallang.xlf:tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_premiumpartner" /></strong></span><br>
+											</f:then>
+											<f:else>
+												<span>{potemaServiceProvider.providerSubtitle}</span><br>
+											</f:else>
+										</f:if>
+									</f:else>
+								</f:if>
+							</f:if>
+
+							<f:if condition="{potemaServiceProvider.providerCountry}">
+								<span class="fontBold"><f:format.case mode="upper">{potemaServiceProvider.providerCountry}</f:format.case></span>
+							</f:if>
+						</div>
+						<div class="large-3 medium-6 columns">
+							<f:if condition="{potemaServiceProvider.providerStreet}">
+								{potemaServiceProvider.providerStreet}<br>
+							</f:if>
+							<f:if condition="{potemaServiceProvider.providerCity}">
+								<f:if condition="{potemaServiceProvider.providerZip}">{potemaServiceProvider.providerZip}&nbsp;</f:if>{potemaServiceProvider.providerCity}
+							</f:if>
+						</div>
+						<div class="large-3 medium-6 columns">
+							<f:if condition="{potemaServiceProvider.providerPhone}">
+								Telefon: {potemaServiceProvider.providerPhone}<br>
+							</f:if>
+							<f:if condition="{potemaServiceProvider.providerFax}">
+								Fax: {potemaServiceProvider.providerFax}
+							</f:if>
+						</div>
+						<div class="large-3 medium-6 columns">
+							<f:if condition="{potemaServiceProvider.providerMobile}">
+								Mobil: {potemaServiceProvider.providerMobile}<br>
+							</f:if>
+							<f:if condition="{potemaServiceProvider.providerEmail}">
+								<f:link.email email="{potemaServiceProvider.providerEmail}">E-Mail</f:link.email>
+							</f:if>
+						</div>
+					</div>
+				</div>
+
+				<div class="large-1 medium-1 small-4 columns">
+					<button class="providerMarker" data-open="reveal-{potemaServiceProvider.uid}">
+						<f:image src="EXT:hellocode_potema_branches/Resources/Public/Icons/Marker.svg" alt="Marker" width="70c" height="70c" /><br>
+						<div class="text-center"><f:translate key="LLL:EXT:hellocode_potema_branches/Resources/Private/Language/locallang.xlf:tx_hellocodepotemabranches_domain_model_potemaserviceprovider.marker_text" /></div>
+					</button>
+				</div>
+
+			</div>
+
+
+		</div>
+
+
+
+		<!-- modal / reveal -->
+		<div class="reveal large potemaProviderDetail" id="reveal-{potemaServiceProvider.uid}" data-reveal>
+
+			<div class="row">
+				<div class="small-12 columns">
+					<div class="wrapHeaderReveal"><h1><f:translate key="LLL:EXT:hellocode_potema_branches/Resources/Private/Language/locallang.xlf:tx_hellocodepotemabranches_domain_model_potemaserviceprovider.reveal_headline" /></h1></div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-12 medium-5 columns">
+					<f:if condition="{potemaServiceProvider.providerPremiumpartner}">
+						<div class="float-right" style="margin-right:20px;">
+							<f:image src="EXT:hellocode_potema_branches/Resources/Public/Icons/icon_premium_partner.png" alt="Potema Premium Partner Icon" />
+						</div>
+					</f:if>
+					<h2>{potemaServiceProvider.providerTitle}</h2>
+
+					<f:if condition="{potemaServiceProvider.providerSubtitle}">
+						<f:if condition="{potemaServiceProvider.providerGeneraldistributor}">
+							<f:then>
+								<span class="{f:if(condition:'{potemaServiceProvider.providerGeneraldistributor} == 1',then:'colorWarning')}">
+									<strong>{potemaServiceProvider.providerSubtitle}</strong></span><br>
+							</f:then>
+							<f:else>
+								<f:if condition="{potemaServiceProvider.providerPremiumpartner}">
+									<f:then>
+											<span class="{f:if(condition:'{potemaServiceProvider.providerPremiumpartner} == 1',then:'colorWarning')}">
+											<strong><f:translate key="LLL:EXT:hellocode_potema_branches/Resources/Private/Language/locallang.xlf:tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_premiumpartner" /></strong></span><br>
+									</f:then>
+									<f:else>
+										<span>{potemaServiceProvider.providerSubtitle}</span><br>
+									</f:else>
+								</f:if>
+							</f:else>
+						</f:if>
+					</f:if>
+					<f:if condition="{potemaServiceProvider.providerCountry}">
+						<p class="lead">{potemaServiceProvider.providerCountry}</p>
+					</f:if>
+					<p>
+						<f:if condition="{potemaServiceProvider.providerStreet}">
+							{potemaServiceProvider.providerStreet}<br>
+						</f:if>
+						<f:if condition="{potemaServiceProvider.providerCity}">
+							{potemaServiceProvider.providerZip}&nbsp;{potemaServiceProvider.providerCity}<br>
+						</f:if>
+					</p>
+					<p>
+						<f:if condition="{potemaServiceProvider.providerPhone}">
+							Telefon: {potemaServiceProvider.providerPhone}<br>
+						</f:if>
+						<f:if condition="{potemaServiceProvider.providerFax}">
+							Fax: {potemaServiceProvider.providerFax}<br>
+						</f:if>
+						<f:if condition="{potemaServiceProvider.providerMobile}">
+							Mobil: {potemaServiceProvider.providerMobile}<br>
+						</f:if>
+					</p>
+					<f:if condition="{potemaServiceProvider.providerEmail}">
+						<p>
+							E-Mail: <f:link.email email="{potemaServiceProvider.providerEmail}">{potemaServiceProvider.providerEmail}</f:link.email>
+						</p>
+					</f:if>
+
+					<f:if condition="{potemaServiceProvider.providerUrl}">
+						<p class="providerUrl">
+							<f:link.external uri="{potemaServiceProvider.providerUrl}" target="_blank"><span class="icon-earth"></span><f:translate key="LLL:EXT:hellocode_potema_branches/Resources/Private/Language/locallang.xlf:tx_hellocodepotemabranches_domain_model_potemaserviceprovider.visitwebsite" /></f:link.external>
+						</p>
+					</f:if>
+				</div>
+				<div class="small-12 medium-7 columns">
+					<div id="map{potemaServiceProvider.uid}" class="map" style="height: 300px; width: 100%;display: block;"
+						 data-lat="{potemaServiceProvider.providerLat}" data-lng="{potemaServiceProvider.providerLng}" data-title="{potemaServiceProvider.providerTitle}">
+					</div>
+				</div>
+			</div>
+
+
+			<button class="close-button" data-close aria-label="Close modal" type="button">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+
+
+
+
+	</f:for>
+
+</div>
+
+
+<script type="text/javascript">
+	$('#search select').on('change', function(e){
+        this.form.submit()
+    });
+</script>
+
+
+
+</f:section>
+</html>

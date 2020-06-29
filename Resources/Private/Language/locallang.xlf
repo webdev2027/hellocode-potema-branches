@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2018-05-02T17:00:00Z" product-name="hellocode_potema_branches">
+		<header/>
+		<body>
+			<trans-unit id="tx_hellocode_potema_branches_domain_model_potemaserviceprovider">
+				<source>POTEMA Service Provider</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocode_potema_branches_domain_model_potemaserviceprovider.description">
+				<source>Address List of all POTEMA service provider</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider">
+				<source>Potema Service Provider</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_title">
+				<source>Provider Title</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_subtitle">
+				<source>Provider Subtitle</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_generaldistributor">
+				<source>General Distributor</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_premiumpartner">
+				<source>Premium Partner</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_street">
+				<source>Provider Street</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_zip">
+				<source>Provider Zip</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_city">
+				<source>Provider City</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_country">
+				<source>Provider Country</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_phone">
+				<source>Provider Phone</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_fax">
+				<source>Provider Fax</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_mobile">
+				<source>Provider Mobile</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_email">
+				<source>Provider Email</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_url">
+				<source>Provider Url</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_lat">
+				<source>Provider Lat</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.provider_lng">
+				<source>Provider Lng</source>
+			</trans-unit>
+
+
+
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.reveal_headline">
+				<source>Your POTEMA specialist:</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.marker_text">
+				<source>Show on map</source>
+			</trans-unit>
+
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.form_select1">
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.form_select2">
+				<source>ZIP</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.form_submit">
+				<source>Search</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.form_select.plz0">
+				<source>010.. bis 096..</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.form_select.plz1">
+				<source>101.. bis 190..</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.form_select.plz2">
+				<source>200.. bis 296..</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.form_select.plz3">
+				<source>301.. bis 396..</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.form_select.plz4">
+				<source>402.. bis 498..</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.form_select.plz5">
+				<source>501.. bis 599..</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.form_select.plz6">
+				<source>600.. bis 695..</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.form_select.plz7">
+				<source>701.. bis 798..</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.form_select.plz8">
+				<source>800.. bis 896..</source>
+			</trans-unit>
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.form_select.plz9">
+				<source>904.. bis 999..</source>
+			</trans-unit>
+
+			<trans-unit id="tx_hellocodepotemabranches_domain_model_potemaserviceprovider.visitwebsite">
+				<source>Website</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
